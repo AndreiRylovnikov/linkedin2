@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-import java.util.concurrent.TimeUnit; //fgfgfgfgfgdrgrgttgtrtyrty
+import java.util.concurrent.TimeUnit;
 
 public class LoginTest {
     @Test
