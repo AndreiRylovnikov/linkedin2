@@ -19,7 +19,7 @@ public class LoginTest {
         driver.findElement(By.id("login-password")).sendKeys("password");
         driver.findElement(By.name("submit")).click();
         Thread.sleep(5000);
-        WebElement errorMessage = driver.findElement(By.xpath("//*[text()='Проверка безопасности']"));
+        WebElement errorMessage = driver.findElement(By.xpath("//*[text()='При заполнении формы были допущены ошибки. Проверьте и исправьте отмеченные поля.']"));
         Assert.assertTrue(errorMessage.isDisplayed(),"Element is not Displayed");
 
 
