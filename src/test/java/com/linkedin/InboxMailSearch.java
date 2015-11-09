@@ -3,12 +3,10 @@ package com.linkedin;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-/**
- * Created by Андрей on 08.11.2015.
- */
+import java.util.concurrent.TimeUnit;
+
 public class InboxMailSearch {
     @Test
     public static void emailConfirmation() throws InterruptedException {
@@ -19,9 +17,9 @@ public class InboxMailSearch {
         Thread.sleep(2000);
         driver.findElement(By.id("Passwd")).sendKeys("dron1111");
         driver.findElement(By.id("signIn")).click();
-
-
-        driver.findElement(By.xpath(".//*[@id='gs_taif50']")).sendKeys("linkedin");
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        //driver.findElement(By.xpath(".//*[@id='gs_taif50']")).sendKeys("linkedin");
+        driver.findElement(By.id(":3w")).click();
 
 
     }
