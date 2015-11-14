@@ -22,7 +22,7 @@ public class RegistrationPage {
     @FindBy(id = "join-password")
     private WebElement passwordInput;
 
-    @FindBy(className = "btn btn-primary join-btn")
+    @FindBy(xpath = "//button[@type='submit']")
     private WebElement joinButton;
 
     public void submitRegistrationForm(String firstName, String lastName, String email, String password){
