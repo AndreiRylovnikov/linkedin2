@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class LoginTest {
     @Test
     public static void errorOnLoginWithInvalidCredentials() throws InterruptedException {
-        WebDriver driver = new FirefoxDriver();
+        //WebDriver driver = new FirefoxDriver();
         driver.get("https://www.linkedin.com");
         driver.findElement(By.id("login-email")).sendKeys("rylovnikov.a@gmail.com");
         driver.findElement(By.id("login-password")).sendKeys("password");
