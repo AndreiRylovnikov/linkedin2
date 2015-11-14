@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class LoginTest {
+public class LoginTestBeta {
     @Test
     public static void errorOnLoginWithInvalidCredentials() throws InterruptedException {
         WebDriver driver = new FirefoxDriver();

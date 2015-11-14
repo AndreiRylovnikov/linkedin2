@@ -11,7 +11,6 @@ public class RegistrationWithWrongEmail {
         registrationPage = PageFactory.initElements(new FirefoxDriver(), RegistrationPage.class);
         registrationPage.open();
         registrationPage.submitRegistrationForm("first", "last", "Linkedin.tstacc@gmail.com", "P@ssword123");
-
         registrationPage.close();
 
     }
