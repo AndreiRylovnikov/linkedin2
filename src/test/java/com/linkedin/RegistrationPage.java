@@ -49,4 +49,7 @@ public class RegistrationPage extends Login {
     public void close() { driver.quit();}
     public void enter(){ driver.findElement(By.xpath("//input[@name='submit']")).click();}
     Boolean isPresent = driver.findElements(By.xpath("xpath=(//a[contains(text(),'Profile')])[2]")).size() > 0;}
+    public void forgotPassword(){driver.findElement(By.xpath("//*[text()[contains(.,'Forgot password')]]")).click();}
+    public void enterEmailToRestore(){driver.findElement(By.xpath(".//*[@id='email-requestPasswordReset']")).sendKeys();}
+}
 
