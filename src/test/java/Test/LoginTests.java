@@ -1,7 +1,10 @@
-package com.linkedin;
+package Test;
 
 
-import org.junit.Before;
+
+import com.linkedin.HomePage;
+import com.linkedin.LoginRegistrationPage;
+import com.linkedin.ProfilePage;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -18,7 +21,7 @@ public class LoginTests {
     private HomePage homePage;
     private ProfilePage profilePage;
     String userEmail = "testautomation.acc@gmail.com";
-    String errorMsg = "Исправьте указанные ниже поля.";
+    //String errorMsg = "Исправьте указанные ниже поля.";
     @BeforeMethod
     public void initLoginPage () {
         loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);

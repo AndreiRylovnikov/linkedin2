@@ -1,8 +1,8 @@
 package com.linkedin;
 
+import Test.LoginTests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -40,9 +40,6 @@ public class LoginRegistrationPage extends LoginTests {
     @FindBy (xpath = "//*[text()[contains('Forgot password')]]")
     private WebElement forgotPasswordButton;
 
-    @FindBy (xpath = ".//*[@id='email-requestPasswordReset']")
-    private WebElement requestPasswordResetButton;
-
     @FindBy (xpath = "//div/[@class='alert error']//strong")
     private WebElement alertErrorMessage;
 
@@ -68,7 +65,8 @@ public class LoginRegistrationPage extends LoginTests {
 
     public void open(){ driver.get("https://www.linkedin.com");}
     public void enter(){ loginSubmitButton.click();}
-    public void enterEmailToRestore(){requestPasswordResetButton.sendKeys();}
-    public void forgotPassword(){forgotPasswordButton.click();}
-}
+    public RestorePasswordPage forgotPassword(){forgotPasswordButton.click();
+        return PageFactory.initElements(driver, RestorePasswordPage.class);};
+    }
+
 
