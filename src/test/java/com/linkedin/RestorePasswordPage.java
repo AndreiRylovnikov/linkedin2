@@ -17,6 +17,16 @@ public class RestorePasswordPage {
     @FindBy(xpath = ".//*[@id='email-requestPasswordReset']")
     private WebElement requestPasswordResetButton;
 
-    public restorePasswordPage (){requestPasswordResetButton.sendKeys();
+    @FindBy(xpath = ".//input[@id='request']")
+    private WebElement submitRestoringPassword;
 
+    public void restorePasswordPage(String userRestoreEmail) {
+        requestPasswordResetButton.sendKeys(userRestoreEmail);
+    }
+    public GmailLoginPage clickRestorePasswordButton(){
+        submitRestoringPassword.click();
+        return PageFactory.initElements(driver, GmailLoginPage.class);};
+    public void openGmail(){ driver.get("https://www.gmail.com");
+    }
 }
+

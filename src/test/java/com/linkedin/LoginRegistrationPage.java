@@ -1,6 +1,6 @@
 package com.linkedin;
 
-import Test.LoginTests;
+import com.linkedin.Test.LoginTests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,7 +37,7 @@ public class LoginRegistrationPage extends LoginTests {
     @FindBy (xpath = "//input[@name='submit']")
     private WebElement loginSubmitButton;
                 //Other
-    @FindBy (xpath = "//*[text()[contains('Forgot password')]]")
+    @FindBy (xpath = ".//*[@class='password-wrapper']/a")
     private WebElement forgotPasswordButton;
 
     @FindBy (xpath = "//div/[@class='alert error']//strong")
@@ -63,8 +63,12 @@ public class LoginRegistrationPage extends LoginTests {
 
     }
 
-    public void open(){ driver.get("https://www.linkedin.com");}
+    public void open(){ driver.get("https://www.linkedin.com");
+        //return PageFactory.initElements( driver, LoginRegistrationPage.class);
+    };
+
     public void enter(){ loginSubmitButton.click();}
+
     public RestorePasswordPage forgotPassword(){forgotPasswordButton.click();
         return PageFactory.initElements(driver, RestorePasswordPage.class);};
     }
