@@ -1,5 +1,6 @@
 package com.linkedin.Test;
 
+
 import com.linkedin.GmailLoginPage;
 import com.linkedin.LoginRegistrationPage;
 import com.linkedin.RestorePasswordPage;
@@ -19,6 +20,7 @@ public class RenewPasswordTest {
     public void initLoginPage () {
         loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
     }
+
 
     @Test
     public void reNewPassword(){
