@@ -6,9 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.concurrent.TimeUnit;
+
 public class LoginRegistrationPage extends LoginTests {
     protected WebDriver driver;
     public LoginRegistrationPage(WebDriver driver) {
+        //PageFactory.initElements(driver, this);
         this.driver = driver;
     }
         //Registration Elements
@@ -70,7 +73,10 @@ public class LoginRegistrationPage extends LoginTests {
     public void enter(){ loginSubmitButton.click();}
 
     public RestorePasswordPage forgotPassword(){forgotPasswordButton.click();
-        return PageFactory.initElements(driver, RestorePasswordPage.class);};
-    }
+        return PageFactory.initElements(driver, RestorePasswordPage.class);}
+
+
+}
+
 
 

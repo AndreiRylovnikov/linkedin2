@@ -1,12 +1,15 @@
 package com.linkedin;
 
 
+import com.linkedin.Test.LoginTests;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class RestorePasswordPage {
+import java.util.concurrent.TimeUnit;
+
+public class RestorePasswordPage extends LoginTests {
 
     protected WebDriver driver;
 
@@ -23,10 +26,19 @@ public class RestorePasswordPage {
     public void restorePasswordPage(String userRestoreEmail) {
         requestPasswordResetButton.sendKeys(userRestoreEmail);
     }
-    public GmailLoginPage clickRestorePasswordButton(){
+
+
+    public void clickRestorePasswordButton() {
         submitRestoringPassword.click();
-        return PageFactory.initElements(driver, GmailLoginPage.class);};
-    public void openGmail(){ driver.get("https://www.gmail.com");
     }
-}
+
+
+    public void wait2(){driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);}
+
+
+
+    public GmailLoginPage openGmail(){ driver.get("https://www.gmail.com");
+        return PageFactory.initElements(driver, GmailLoginPage.class);}
+    }
+
 

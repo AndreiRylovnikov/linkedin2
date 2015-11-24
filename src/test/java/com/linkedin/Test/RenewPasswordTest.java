@@ -1,9 +1,8 @@
 package com.linkedin.Test;
 
 
-import com.linkedin.GmailLoginPage;
-import com.linkedin.LoginRegistrationPage;
-import com.linkedin.RestorePasswordPage;
+import com.linkedin.*;
+
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.BeforeMethod;
@@ -14,7 +13,13 @@ public class RenewPasswordTest {
     private LoginRegistrationPage loginRegistrationPage;
     private RestorePasswordPage restorePasswordPage;
     private GmailLoginPage gmailLoginPage;
+    private GmailHomePage gmailHomePage;
+    private GmailMailPage gmailMailPage;
+    private NewPasswordPage newPasswordPage;
+
     String userRestoreEmail = "rylovnikov.a@gmail.com";
+    String userPassword = "dron1111";
+    String newPassword = "dron222";
 
     @BeforeMethod
     public void initLoginPage () {
@@ -26,16 +31,16 @@ public class RenewPasswordTest {
     public void reNewPassword(){
         loginRegistrationPage.open();
         restorePasswordPage = loginRegistrationPage.forgotPassword();
+        restorePasswordPage.wait2();
         restorePasswordPage.restorePasswordPage(userRestoreEmail);
         restorePasswordPage.clickRestorePasswordButton();
-        restorePasswordPage.openGmail();
-       //gmailLoginPage = restorePasswordPage.enterEmail
+        gmailLoginPage = restorePasswordPage.openGmail();
+        gmailHomePage = gmailLoginPage.enterEmailAndSubmt(userRestoreEmail, userPassword);
+        gmailMailPage = gmailHomePage.clickMail();
+        newPasswordPage = gmailMailPage.clickRecoveryLink();
+        newPasswordPage.wait3();
+        newPasswordPage.clickAndSubmitNewPassword(newPassword);
 
 
-
-
-
-
-
+        }
     }
-}
