@@ -5,6 +5,7 @@ import com.linkedin.*;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -16,10 +17,11 @@ public class RenewPasswordTest {
     private GmailHomePage gmailHomePage;
     private GmailMailPage gmailMailPage;
     private NewPasswordPage newPasswordPage;
+    private HomePage homePage;
 
     String userRestoreEmail = "rylovnikov.a@gmail.com";
     String userPassword = "dron1111";
-    String newPassword = "dron222";
+    String newPassword = "dron111";
 
     @BeforeMethod
     public void initLoginPage () {
@@ -40,6 +42,9 @@ public class RenewPasswordTest {
         newPasswordPage = gmailMailPage.clickRecoveryLink();
         newPasswordPage.wait3();
         newPasswordPage.clickAndSubmitNewPassword(newPassword);
+        homePage = newPasswordPage.continueToLinkedin();
+        Assert.assertTrue(homePage.isPageLoaded());
+
 
 
         }
