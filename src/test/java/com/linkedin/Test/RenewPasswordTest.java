@@ -21,7 +21,7 @@ public class RenewPasswordTest {
 
     String userRestoreEmail = "rylovnikov.a@gmail.com";
     String userPassword = "dron1111";
-    String newPassword = "dron111";
+    String newPassword = "dron1111";
 
     @BeforeMethod
     public void initLoginPage () {

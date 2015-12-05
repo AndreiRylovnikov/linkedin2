@@ -20,6 +20,14 @@ public class HomePage {
     @FindBy(xpath = "//a[contains(text(),'Profile')]")
     WebElement profileMenuLink;
 
+    @FindBy (xpath = ".//*[@id='advanced-search']")
+    WebElement search;
+
+    public SearchPage searchClick(){
+        search.click();
+        return PageFactory.initElements(driver, SearchPage.class);
+    }
+
     public ProfilePage profileClick(){
         profileMenuLink.click();
     return PageFactory.initElements(driver, ProfilePage.class);

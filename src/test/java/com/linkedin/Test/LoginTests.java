@@ -41,7 +41,7 @@ public class LoginTests {
     @Test
     public  void userLoginGenericTest(String userPassword){
         //String userPassword = "Testautomation123";
-        loginRegistrationPage.open();
+
         homePage = loginRegistrationPage.loginUser(userEmail,userPassword);
 
         switch(userPassword) {
