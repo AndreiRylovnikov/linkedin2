@@ -4,6 +4,7 @@ package com.linkedin.Test;
 import com.linkedin.HomePage;
 import com.linkedin.LoginRegistrationPage;
 import com.linkedin.SearchPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -29,21 +30,17 @@ public class TestTest {
     }
 
    @Test
-    public void test(){
+    public void test() {
        loginRegistrationPage.open();
-       homePage = loginRegistrationPage.loginUser(userEmail,userPassword);
+       homePage = loginRegistrationPage.loginUser(userEmail, userPassword);
        searchPage = homePage.searchClick();
        searchPage.waitPage();
        searchPage.findForKeyWord(hr);
        searchPage.waitPage();
-       List<WebElement> al = new ArrayList<WebElement>();
-
-       al = searchPage.resultImage();
-
-       for(int i=0; i<al.size();i++){
-           al.get(i).click();
+       searchPage.testMethod2();
 
 
 
+
+       }
    }
-}

@@ -22,6 +22,7 @@ public class RenewPasswordTest {
     String userRestoreEmail = "rylovnikov.a@gmail.com";
     String userPassword = "dron1111";
     String newPassword = "dron1111";
+    String pageTitle = "Welcome";
 
     @BeforeMethod
     public void initLoginPage () {
@@ -43,7 +44,7 @@ public class RenewPasswordTest {
         newPasswordPage.wait3();
         newPasswordPage.clickAndSubmitNewPassword(newPassword);
         homePage = newPasswordPage.continueToLinkedin();
-        Assert.assertTrue(homePage.isPageLoaded());
+        Assert.assertTrue(homePage.isPageLoaded(pageTitle));
 
 
 

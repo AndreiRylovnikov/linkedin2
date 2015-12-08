@@ -1,7 +1,5 @@
 package com.linkedin.Test;
 
-
-
 import com.linkedin.HomePage;
 import com.linkedin.LoginRegistrationPage;
 import com.linkedin.ProfilePage;
@@ -13,18 +11,23 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.sql.Driver;
+
 public class LoginTests {
 
     private LoginRegistrationPage loginRegistrationPage;
     private HomePage homePage;
     private ProfilePage profilePage;
+    private FirefoxDriver driver;
     String userEmail = "testautomation.acc@gmail.com";
-    //String errorMsg = "Исправьте указанные ниже поля.";
-    @BeforeMethod
-    public void initLoginPage () {
-        loginRegistrationPage = PageFactory.initElements(new FirefoxDriver(), LoginRegistrationPage.class);
-    }
+    String pageTitle = "Добро пожаловать! | LinkedIn";
 
+
+    @BeforeMethod
+    public void setup() {
+        this.driver = new FirefoxDriver();
+        loginRegistrationPage = new LoginRegistrationPage(driver);
+    }
 
 
     @AfterMethod
@@ -40,21 +43,18 @@ public class LoginTests {
     }
     @Test
     public  void userLoginGenericTest(String userPassword){
-        //String userPassword = "Testautomation123";
-
         homePage = loginRegistrationPage.loginUser(userEmail,userPassword);
-
         switch(userPassword) {
             case "Testautomation123":
-                Assert.assertTrue(homePage.isPageLoaded());
+                Assert.assertTrue(homePage.isPageLoaded(pageTitle));
                 break;
             case "1234":
-                Assert.assertFalse(homePage.isPageLoaded());
+                Assert.assertFalse(homePage.isPageLoaded(pageTitle));
                 break;
             default:
                 break;
         }
-        Assert.assertTrue(homePage.isPageLoaded());
+        Assert.assertTrue(homePage.isPageLoaded(pageTitle));
     }
 
     @Test
@@ -65,7 +65,6 @@ public class LoginTests {
         loginRegistrationPage.open();
         homePage = loginRegistrationPage.loginUser(userEmail,userPassword);
         profilePage = homePage.profileClick();
-        // assert that profile page is loaded
         profilePage.close();
     }
 }

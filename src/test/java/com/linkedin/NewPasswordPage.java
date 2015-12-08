@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.concurrent.TimeUnit;
 
-public class NewPasswordPage {
+public class NewPasswordPage extends AbstractPage {
 
     protected WebDriver driver;
     public NewPasswordPage(WebDriver driver) {
@@ -33,7 +33,7 @@ public class NewPasswordPage {
         confirmInputNewPassword.sendKeys(newPassword);
         submitNewPassword.click();
     }
-    public void wait3(){driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);}
+   // public void wait3(){driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);}
 
     public HomePage continueToLinkedin(){continueToLinkedinButton.click();
         return PageFactory.initElements(driver, HomePage.class);}
